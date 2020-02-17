@@ -163,10 +163,10 @@ GL.glEnable(GL.GL_CULL_FACE)
 clock.reset()                                               # reset clock 0 sec
 
 # Start with a message before playing the animation
-while clock.getTime() < pre_demo_duration_s:               
-    text.text = pre_demo_msg
-    text.draw()
-    win.flip() 
+#while clock.getTime() < pre_demo_duration_s:               
+#    text.text = pre_demo_msg
+#    text.draw()
+#    win.flip() 
     
 
 for Nframes in range(700):                                  # (~ 12 sec)
@@ -231,12 +231,12 @@ for Nframes in range(700):                                  # (~ 12 sec)
                 circle.position.xy = np.random.uniform(-25, 25) * z_rel/far_z
                 circle.position.y = np.random.uniform(-25, 25) * z_rel/far_z
 
-        for i,target in enumerate(targets):
-            if Nframes in range(interv_color_chg,interv_color_chg+100):
-                target.draw()   
+#        for i,target in enumerate(targets):
+#            if Nframes in range(interv_color_chg,interv_color_chg+100):
+#                target.draw()   
 
         # Get the back buffer frames
-        #win.getMovieFrame(buffer='back')
+        win.getMovieFrame(buffer='back')
     
     
     win.flip()
@@ -250,6 +250,6 @@ for Nframes in range(700):                                  # (~ 12 sec)
     
     
 # Save the frames into a movie with format mp4
-#win.saveMovieFrames('optic_flow_circles.mp4')
+win.saveMovieFrames('optic_flow_circles.gif')
         
 win.close()
